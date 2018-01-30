@@ -79,22 +79,15 @@
 										</select>
 									</div>
 								</div>
-								<div class='form-group col-md-3 col-xs-3'>
+								<div class='form-group col-md-6 col-xs-6'>
 									<div class='input-group'>
 										<span class='input-group-addon'><i class="glyphicon glyphicon-credit-card" style='margin-right:10px;'></i>주민번호</span>
-										<input type='text' class='form-control' name='jumin'/>
+										<input type='text' class='form-control' name='jumin1'/>
+										<span class='input-group-addon'><i class='glyphicon glyphicon-minus'></i></span>
+										<input type='text' class='form-control' name='jumin2'/>
 									</div>
 								</div>
-								<div class='form-group col-md-3 col-xs-3'>
-									<div class='input-group'>
-										<span class='input-group-addon'><i class="glyphicon glyphicon-gbp" style='margin-right:10px;'></i>내/외국인</span>
-										<select class="selectpicker show-tick" data-width="100px" name='nationality'>
-											<option disabled selected>내/외</option>
-											<option value=''>내국인</option>
-											<option value=''>외국인</option>
-										</select>
-									</div>
-								</div>
+								
 							</div>
 							<div class='col-md-12 col-xs-12'>
 								<div class='form-group col-md-4 col-xs-4'>
@@ -276,7 +269,7 @@
 								</div>
 							</div>
 							<div class='col-md-12 col-xs-12'>
-								<div class='form-group col-md-4 col-xs-4'>
+								<div class='form-group col-md-3 col-xs-3'>
 									<div class='input-group'>
 										<span class='input-group-addon'><i class="glyphicon glyphicon-eye-close" style='margin-right:10px;'></i>색맹</span>
 										<select class="selectpicker show-tick" data-width="100px" name='blindness'>
@@ -286,7 +279,7 @@
 										</select>
 									</div>
 								</div>
-								<div class='form-group col-md-4 col-xs-4'>
+								<div class='form-group col-md-3 col-xs-3'>
 									<div class='input-group'>
 										<span class='input-group-addon'><i class="glyphicon glyphicon-plus" style='margin-right:10px;'></i>혈액형</span>
 										<select class="selectpicker show-tick" data-width="100px" name='bloodType'>
@@ -298,10 +291,20 @@
 										</select>
 									</div>
 								</div>
-								<div class='form-group col-md-4 col-xs-4'>
+								<div class='form-group col-md-3 col-xs-3'>
 									<div class='input-group'>
 										<span class='input-group-addon'><i class="glyphicon glyphicon-list" style='margin-right:10px;'></i>종교</span>
 										<input type='text' class='form-control' name='religion'/>
+									</div>
+								</div>
+								<div class='form-group col-md-3 col-xs-3'>
+									<div class='input-group'>
+										<span class='input-group-addon'><i class="glyphicon glyphicon-gbp" style='margin-right:10px;'></i>내/외국인</span>
+										<select class="selectpicker show-tick" data-width="100px" name='nationality'>
+											<option disabled selected>내/외</option>
+											<option value=''>내국인</option>
+											<option value=''>외국인</option>
+										</select>
 									</div>
 								</div>
 							</div>
