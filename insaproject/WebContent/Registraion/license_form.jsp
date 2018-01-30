@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,10 +17,10 @@
 <body>
 	<div id='license_form'>
 		<div class='container'>
+		
 			<div class='panel panel-primary'>
 				<div class='panel-heading'><span class="glyphicon glyphicon-list" style='margin-right:10px;'></span>자격증 리스트</div>
 				<div class='panel-body'>
-				
 					<!-- 폼 -->
 					<form name='frm_license1' method='post'>
 						<div class='pull-right'>
@@ -48,81 +49,10 @@
 							</tr>
 						</thead>
 						<!-- 데이터를 기반으로 리스트를 보여주는 곳 -->
-						<tbody>
-							<tr>
-								<td>
-									<input type='checkbox'/>
-								</td>
-								<td>
-									<a href='#'>B301</a>
-								</td>
-								<td>외국어</td>
-								<td>토익800점이상</td>
-								<td>외국어부처</td>
-								<td>10점</td>
-							</tr>
-							<tr>
-								<td>
-									<input type='checkbox'/>
-								</td>
-								<td>
-									<a href='#'>B302</a>
-								</td>
-								<td>기타</td>
-								<td>한국사</td>
-								<td>역사사랑부처</td>
-								<td>12점</td>
-							</tr>
-							<tr>
-								<td>
-									<input type='checkbox'/>
-								</td>
-								<td>
-									<a href='#'>B303</a>
-								</td>
-								<td>전산</td>
-								<td>전기산업기사</td>
-								<td>전기공사</td>
-								<td>15점</td>
-							</tr>
-							<tr>
-								<td>
-									<input type='checkbox'/>
-								</td>
-								<td>
-									<a href='#'>B304</a>
-								</td>
-								<td>전산</td>
-								<td>컴퓨터활용능력1급</td>
-								<td>컴퓨터사랑부처</td>
-								<td>11점</td>
-							</tr>
-							<tr>
-								<td>
-									<input type='checkbox'/>
-								</td>
-								<td>
-									<a href='#'>B305</a>
-								</td>
-								<td>기타</td>
-								<td>밭갈기</td>
-								<td>시골사랑부처</td>
-								<td>3점</td>
-							</tr>
-							<tr>
-								<td>
-									<input type='checkbox'/>
-								</td>
-								<td>
-									<a href='#'>B306</a>
-								</td>
-								<td>리더쉽</td>
-								<td>리더되기1급</td>
-								<td>카드리더기</td>
-								<td>8점</td>
-							</tr>
-						</tbody>
+						
+						<tbody id='result'></tbody>
 					</table>
+					<div id='page'></div>
 				</div>
 			</div>
 			<div class='panel panel-default'>
@@ -130,11 +60,11 @@
 				<div class='panel-body'>
 				
 					<!-- 폼 -->
-					<form name='frm_license2' method='post'>
+					<form name='frm_license2' method='post' action=''>
 						<div class='form-group col-md-6 col-xs-6'>
-							<div class='input-group'>
+							<div class='input-group' >
 								<label class='input-group-addon'><i class='glyphicon glyphicon-random' style='margin-right:10px;'></i>구분</label>
-								<select class="selectpicker show-tick" data-width="150px">
+								<select class="selectpicker show-tick" data-width="150px" name='cate' value='${param.cate}'>
 									<option disabled selected>분류</option>
 									<option>한국어</option>
 									<option>영어/외국어</option>
@@ -147,26 +77,35 @@
 						<div class='form-group col-md-6 col-xs-6'>
 							<div class='input-group'>
 								<label class='input-group-addon'><i class='glyphicon glyphicon-asterisk' style='margin-right:10px;'></i>자격증명</label>
-								<input type='text' class='form-control' name='licenseName'/>
+								<input type='text' class='form-control' name='card' value='${param.card}'/>
 							</div>
 						</div>
 						<div class='form-group col-md-6 col-xs-6'>
 							<div class='input-group'>
 								<label class='input-group-addon'><i class='glyphicon glyphicon-briefcase' style='margin-right:10px;'></i>시행기관</label>
-								<input type='text' class='form-control' name='commandCenter'/>
+								<input type='text' class='form-control' name='post' value='${param.post}'/>
 							</div>
 						</div>
 						<div class='form-group col-md-6 col-xs-6'>
 							<div class='input-group'>
 								<label class='input-group-addon'><i class='glyphicon glyphicon-plus' style='margin-right:10px;'></i>배점</label>
-								<input type='text' class='form-control' name='point'/>
+								<input type='text' class='form-control' name='point' value='${param.point}'/>
+							</div>
+						</div>
+						<div class='form-group col-md-6 col-xs-6'>
+							<div class='input-group'>
+								<label class='input-group-addon'><i class='glyphicon glyphicon-plus' style='margin-right:10px;'></i>적용내용</label>
+								<input type='text' class='form-control' name='content' value='${param.content}'/>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col-md-3 col-md-offset-5 col-xs-6 col-xs-offset-5'>
-								<button type='button' class='btn btn-success' id='btnConfirm'><span class='glyphicon glyphicon-upload' style='margin-right:10px;'></span>등록</button>
-								<button type='button' class='btn btn-success'id='btnModify'><span class='glyphicon glyphicon-refresh' style='margin-right:10px;'></span>수정</button>
-								<button type='button' class='btn btn-warning'id='btnDelete'><span class='glyphicon glyphicon-ban-circle' style='margin-right:10px;'></span>삭제</button>
+								<button type='button' class='btn btn-success' id='btnConfirm'>
+									<span class='glyphicon glyphicon-upload' style='margin-right:10px;'></span>등록</button>
+								<button type='button' class='btn btn-success'id='btnModify'>
+									<span class='glyphicon glyphicon-refresh' style='margin-right:10px;'></span>수정</button>
+								<button type='button' class='btn btn-warning'id='btnDelete'>
+									<span class='glyphicon glyphicon-ban-circle' style='margin-right:10px;'></span>삭제</button>
 							</div>
 						</div>
 					</form>
@@ -176,8 +115,10 @@
 	</div>
 </body>
 <script>
-document.getElementById("btnDelete").onclick = function() { //삭제
-	confirm("정말삭제하시겠습니까?");
-}
+  var frm = document.frm_license2;
+	frm.btnConfirm.onclick = function(){
+		frm.action = 'insertR.pgb';
+		frm.submit();
+	}
 </script>
 </html>

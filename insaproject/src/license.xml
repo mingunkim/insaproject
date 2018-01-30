@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="license">
+	<insert id="insert"  parameterType="resi.LicenseVo">
+		insert 
+			into License_Regi(License_Regi_code, License_Regi_cate,	License_Regi_card,
+							  License_Regi_content,	License_Regi_post, License_Regi_point 
+			 )
+			values( LICENSE_SEQ.NEXTVAL, #{cate}, #{card}, 
+					#{content},	#{post}, #{point})
+	</insert>
+</mapper>
