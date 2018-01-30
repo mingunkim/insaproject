@@ -1066,8 +1066,8 @@ $(function() {
 $(function() {
 	$('.agree,.forgot, #toggle-terms, .log-in').on('click', function(event) {
 		event.preventDefault();
-		var terms = $('.terms'),
-        recovery = $('.recovery'),
+		/* var terms = $('.terms'), */
+        var recovery = $('.recovery'),
         close = $('#toggle-terms'),
         arrow = $('.tabs-content .fa');
 		if ($(this).hasClass('agree') || $(this).hasClass('log-in')) {
