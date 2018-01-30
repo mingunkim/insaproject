@@ -112,7 +112,7 @@ $(document).ready(function(){
 					</li>
 				</ul>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#" class="dropdown">
 					<i class="fa fa-table" aria-hidden="true"></i>
 					<span>부서관리</span>
@@ -129,13 +129,18 @@ $(document).ready(function(){
 						</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 			<li>
 				<a href="#" class='dropdown'>
-					<i class="fa fa-bed" aria-hidden="true"></i>
+					<i class="fa fa-table" aria-hidden="true"></i>
 					<span>기본등록</span>
 				</a>
 				<ul class="dropdownlist">
+					<li>
+						<a href="/insaproject/index.jsp?inc=./Registraion/department_form.jsp">
+							<span>부서 등록</span>
+						</a>
+					</li>
 					<li>
 						<a href="/insaproject/index.jsp?inc=./Registraion/position_form.jsp">
 							<span>직급 등록</span>
