@@ -15,7 +15,8 @@
 			</environment>
 	</environments>
 		<mappers>
-			<mapper resource="board.xml"/> <!-- myBatis_config와 동일한 경로에 있는 -->
-		</mappers>
+			<mapper resource="member.xml"/> <!-- myBatis_config와 동일한 경로에 있는 -->
+			<mapper resource="license.xml"/>
+		</mappers>      
 </configuration>
 

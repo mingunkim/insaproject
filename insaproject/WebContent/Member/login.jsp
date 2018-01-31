@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -957,9 +958,9 @@ input {
                     <h2>패스워드 초기화하기</h2>
                     <p>계정의 <strong>이메일주소</strong> 와 <strong>사원코드를</strong> 입력하고 <strong>제출하기를 클릭해주세요.</strong></p>
                     <p>계정비밀번호를 초기설정하겠습니다.</p>
-                    <form class="recovery-form" action="" method="post">
-                        <input type="text" class="input" name='recovery_empDepartment' placeholder="사원코드 입력">
-                        <input type="text" class="input" id="recovery_empEmail" placeholder="이메일주소 입력">
+                    <form name='frm_loginRe' class="recovery-form" method="post">
+                        <input type="text" class="input" name='mem_emp_code' placeholder="사원코드 입력">
+                        <input type="text" class="input" name="mem_mail" placeholder="이메일주소 입력">
                         <input type="submit" class="button" value="Submit">
                     </form>
 					<!-- 사원코드와 이메일주소가 일치한다면  -->
@@ -1008,9 +1009,12 @@ input {
                     	<div class="tabs-content">
                             <!-- TABS CONTENT LOGIN -->
                     		<div id="login-tab-content" class="active">
-                    			<form class="login-form" action="" method="post">
-                    				<input type="text" class="input" name='employee_department' autocomplete="off" placeholder="사원코드입력">
-                    				<input type="password" class="input" name='employee_email' autocomplete="off" placeholder="비밀번호입력">
+                    			<form name='frm_login' class="login-form" method="post">
+                    				<input type="text" class="input" name='mem_emp_code' autocomplete="off" placeholder="사원코드입력" value='${(vo.msg eq "일치하는 아이디가 없습니다.")? "":param.mem_emp_code}'/>
+                    				<input type="password" class="input" name='mem_pwd1' autocomplete="off" placeholder="비밀번호입력"/>
+                    				<c:if test='${vo.msg != null}'>
+	                    				<p style='color:#ff0000;'>${vo.msg }</p>
+                    				</c:if>
                     				<input type="checkbox" class="checkbox" checked id="remember_me">
                     				<label for="remember_me">사원코드 기억하기</label>
                     				<input type="button" class="button" id='btnLogin' value="Login">
@@ -1123,9 +1127,12 @@ $(function() {
 });
 //# sourceURL=pen.js
 
-$(function(){ //btnSignUp 클릭
+$(function(){ //로그인 버튼 클릭
 	$('#btnLogin').on('click', function(){
-		location.href = "/insaproject/index.jsp";
+		
+		var frm = document.frm_login;
+		frm.action = "login.mb";
+		frm.submit();
 	});
 });
 </script>

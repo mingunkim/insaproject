@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="member">
+	<select id='loginId' parameterType='member.MemberVo' resultType='member.MemberVo'>
+		select * from member where mem_emp_code = #{mem_emp_code}
+	</select>
+	
+	<select id='login' parameterType='member.MemberVo' resultType='member.MemberVo'>
+		select * from member where mem_emp_code = #{mem_emp_code} and mem_pwd1 = #{mem_pwd1}
+	</select>
+</mapper>
