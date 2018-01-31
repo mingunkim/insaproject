@@ -36,6 +36,17 @@
       <url-pattern>*.pgb</url-pattern>
    </servlet-mapping>
    
+   <!-- notice  -->
+   <servlet>
+		<servlet-name>notice</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+		<servlet-name>notice</servlet-name>
+		<url-pattern>*.nc</url-pattern>
+   </servlet-mapping>
    
    <filter>
       <filter-name>encodingFilter</filter-name>

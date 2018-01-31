@@ -304,6 +304,19 @@ a.button:hover {
     opacity: 1;
 }
 
+/* msg */
+p.msg {
+	opacity: 0;
+    -webkit-transition: opacity 1s .5s ease;
+    -moz-transition: opacity 1s .5s ease;
+    -o-transition: opacity 1s .5s ease;
+    transition: opacity 1s .5s ease;
+}
+
+p.msg.animate {
+	opacity: 1;
+}
+
 /* CONTENT */
 .content {
     position: fixed;
@@ -1013,7 +1026,7 @@ input {
                     				<input type="text" class="input" name='mem_emp_code' autocomplete="off" placeholder="사원코드입력" value='${(vo.msg eq "일치하는 아이디가 없습니다.")? "":param.mem_emp_code}'/>
                     				<input type="password" class="input" name='mem_pwd1' autocomplete="off" placeholder="비밀번호입력"/>
                     				<c:if test='${vo.msg != null}'>
-	                    				<p style='color:#ff0000;'>${vo.msg }</p>
+	                    				<p class='msg' style='color:#ff0000;'>${vo.msg }</p>
                     				</c:if>
                     				<input type="checkbox" class="checkbox" checked id="remember_me">
                     				<label for="remember_me">사원코드 기억하기</label>
@@ -1030,6 +1043,7 @@ input {
         </div>
 </body>
 <script>
+
  //LOGIN TABS
 $(function() {
 	var tab = $('.tabs h3 a');
@@ -1115,6 +1129,17 @@ $(function() {
 			$('.recovery .mssg').removeClass('animate');
 		}, 2500);
 	});
+});
+
+//msg
+$(function(){
+	var msg = $(".msg");
+	if(msg != null) {
+		$(".msg").addClass('animate');
+		setTimeout(function(){
+			$(".msg").removeClass("animate");
+		}, 3000);
+	}
 });
 
 // DISABLE SUBMIT FOR DEMO
