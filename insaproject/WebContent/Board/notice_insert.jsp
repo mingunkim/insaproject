@@ -39,19 +39,60 @@
 	</div>
 </body>
 <script>
+
+/* onImageUpload: function(files, editor, welEditable) {
+	console.log(files);
+	console.log(files[0]);
+	data = new FormDate();
+	data.append("file", files[0]);
+	var $note = $(this);
+	$.ajax({
+		data : data,
+		type : "POST",
+		url : "./noticeImage",
+		cache : false,
+		contentType : false,
+		processDate : false,
+		success : function(url) {
+			alert(url);
+			$note.summernote("insertImage", url);
+		}
+	});
+} */
+
 $(document).ready(function() {
     $('#summernote').summernote({
             height: 300,                 
             minHeight: null,             
             maxHeight: null,             
             focus: true,                  // set focus to editable area after initializing summernote
-            callbacks: {
-              onImageUpload: function(files, editor, welEditable) {
+            /* callbacks: { */
+              /* onImageUpload: function(files, editor, welEditable) {
                 for (var i = files.length - 1; i >= 0; i--) {
                   sendFile(files[i], this);
                 }
-              }
-            }
+              } */
+              onImageUpload: function(files, editor, welEditable) {
+            		console.log(files);
+            		console.log(files[0]);
+            		data = new FormData();
+            		data.append("file", files[0]);
+            		var $note = $(this);
+            		$.ajax({
+            			data : data,
+            			type : "POST",
+            			url : "upload.nc",
+            			encytype : "multipart/form-data",
+            			cache : false,
+            			contentType : false,
+            			processData : false,
+            			success : function(url) {
+            				alert(url);
+            				$note.summernote("insertImage", url);
+            			}
+            		});
+            	}
+            /* } */
     });
 });
 
@@ -74,11 +115,16 @@ function sendFile(file, el) {
 }
 
 document.getElementById("btnConfirm").onclick = function() {
-	alert("공지사항 입력되었습니다.");
+	var frm = document.frm_noticeInsert;
+	frm.action = "insert.nc";
+	frm.submit();
 }
 
 document.getElementById("btnList").onclick = function() {
-	location.href = "/insaproject/index.jsp?inc=./Board/notice_list.jsp";
+	/* location.href = "/insaproject/index.jsp?inc=./Board/notice_list.jsp"; */
+	var frm = document.frm_noticeInsert;
+	frm.action = "upload.nc";
+	frm.submit();
 }
 </script>
 </html>
