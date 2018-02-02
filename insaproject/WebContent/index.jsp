@@ -142,7 +142,7 @@ $(document).ready(function(){
 						</a>
 					</li>
 					<li>
-						<a href="/insaproject/index.jsp?inc=./Registraion/position_form.jsp">
+						<a href="list.pgb">
 							<span>직급 등록</span>
 						</a>
 					</li>
@@ -228,7 +228,8 @@ $(document).ready(function(){
 						</a>
 					</li>
 					<li>
-						<a href="/insaproject/index.jsp?inc=./Setting/myMerit.jsp">
+						<a href="/insaproject/i
+						ndex.jsp?inc=./Setting/myMerit.jsp">
 							<span>내 평가서 보기</span>
 						</a>
 					</li>

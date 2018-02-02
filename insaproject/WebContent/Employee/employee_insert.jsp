@@ -122,7 +122,20 @@
 								</div>
 							</div>
 							<div class='col-md-12 col-xs-12'>
-								<div class='form-group col-md-4 col-xs-4'>
+								<div class='form-group col-md-3 col-xs-3'>
+									<div class='input-group'>
+										<span class='input-group-addon'><i class="glyphicon glyphicon-briefcase" style='margin-right:10px;'></i>상위 부서</span>
+										<select class="selectpicker show-tick" data-width="100px" name='department'>
+											<!-- 데이터를 기반으로 동적으로 생기는 부분 -->
+											<option disabled selected>상위부서</option>
+											<option value=''>영업팀</option>
+											<option value=''>경영팀</option>
+											<option value=''>동희팀</option>
+											<option value=''>민건팀</option>
+										</select>
+									</div>
+								</div>
+								<div class='form-group col-md-3 col-xs-3'>
 									<div class='input-group'>
 										<span class='input-group-addon'><i class="glyphicon glyphicon-briefcase" style='margin-right:10px;'></i>부서</span>
 										<select class="selectpicker show-tick" data-width="100px" name='department'>
@@ -135,7 +148,7 @@
 										</select>
 									</div>
 								</div>
-								<div class='form-group col-md-4 col-xs-4'>
+								<div class='form-group col-md-3 col-xs-3'>
 									<div class='input-group'>
 										<span class='input-group-addon'><i class="glyphicon glyphicon-flag" style='margin-right:10px;'></i>직위</span>
 										<select class="selectpicker show-tick" data-width="100px" name='position'>
@@ -154,7 +167,7 @@
 										</select>
 									</div>
 								</div>
-								<div class='form-group col-md-4 col-xs-4'>
+								<div class='form-group col-md-3 col-xs-3'>
 									<div class='input-group'>
 										<span class='input-group-addon'><i class="glyphicon glyphicon-education" style='margin-right:10px;'></i>학력</span>
 										<select class="selectpicker show-tick" data-width="100px" name='education'>

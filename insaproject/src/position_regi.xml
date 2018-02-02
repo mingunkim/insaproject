@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace='position_regi'>
+	<insert id="insert" parameterType="position.PositionVo">
+		 insert into position (pos_code, pos_name) values('P0' || pos_seq.nextval, #{pos_name})
+	</insert>
+	<select id="select" parameterType="position.PositionVo" resultType="position.PositionVo">
+		select * from position
+	</select>
+	<delete id="delete" parameterType="position.PositionVo" >
+		delete from position where pos_code = #{pos_code}
+	</delete>
+	<update id="modify" parameterType="position.PositionVo" >
+		update position set pos_name = #{pos_name} where pos_code = #{pos_code}
+	</update>
+</mapper>

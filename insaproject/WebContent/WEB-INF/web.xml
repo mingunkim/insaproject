@@ -36,7 +36,6 @@
       <url-pattern>*.pgb</url-pattern>
    </servlet-mapping>
    
-   <!-- notice  -->
    <servlet>
 		<servlet-name>notice</servlet-name>
 		<servlet-class>

@@ -13,11 +13,14 @@
 	<context:annotation-config/>
 	
 	<bean id='dao' class='resi.LicenseDao'/>
+	<bean id='pos_dao' class='position.PositionDao'/>
 		
 	<!-- 컨트롤러 등록 , Mybatis에 관련된 -->
 	<bean id='License_Controller' class='resi.LicenseController' >
 		<constructor-arg ref='dao'/><!-- constructor-arg (생성자)를 통해서 dao가 주입되었다. -->
-		
+	</bean>
+	<bean id='Position_Controller' class='position.PositionController'>
+		<constructor-arg ref="pos_dao"/>	
 	</bean>
 	
 	<!-- view Resolver 결과를보여줄 페이지를 정의 Spring 교재에 빠져있음 -->
